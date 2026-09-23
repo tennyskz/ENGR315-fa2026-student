@@ -1,0 +1,16 @@
+
+
+def return_value(init, rate, years):
+
+    A = init * (1 + (rate / 100))**years
+
+    return A
+
+
+principal = 1000
+rate = 3
+n = 10
+
+
+print(return_value(principal, rate, n))
+
