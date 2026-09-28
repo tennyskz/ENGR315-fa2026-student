@@ -9,10 +9,25 @@ def my_pi(target_error):
     :return: Approximation of PI to specified error bound
     """
 
-    ### YOUR CODE HERE ###
+    a = 1
+    b = 1/math.sqrt(2)
+    t = 1/4
+    p = 1
 
+
+    for i in range(100):
+        a2 = (a + b) / 2
+        b2 = math.sqrt(a * b)
+        p2 = 2*p
+        t2 = t - p*(a2-a)**2
+        a = a2
+        b = b2
+        p = p2
+        t = t2
+    
+        pi_num = ((a+b)**2)/(4*t)
     # change this so an actual value is returned
-    return 0
+    return pi_num
 
 
 
