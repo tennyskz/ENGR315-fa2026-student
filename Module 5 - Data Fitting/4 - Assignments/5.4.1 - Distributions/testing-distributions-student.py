@@ -30,10 +30,11 @@ def fit_normal(_samples):
     """
 
     # Hint: norm.fit() returns the mean and standard deviation, as in the lecture example
-    fitted_mean = None
-    fitted_std = None
+    #fitted_mean = None
+    #fitted_std = None
 
     # YOUR CODE HERE #
+    (fitted_mean, fitted_std) = norm.fit(_samples)
 
     return fitted_mean, fitted_std
 
@@ -46,9 +47,11 @@ def fit_exponential(_samples):
     """
 
     # Hint: use expon.fit() as in the lecture example. Pass floc=0 so the location stays at 0 and only beta is fit
-    fit_beta = None
+    #fit_beta = None
 
     # YOUR CODE HERE #
+    expon_fit = expon.fit(_samples, floc=0) #returns location and scale
+    fit_beta = expon_fit[1]  # the second element is the scale (beta)
 
     return fit_beta
 
@@ -62,10 +65,13 @@ def normal_range(_samples, _fraction):
     """
 
     # Hint: fit the samples with your fit_normal() first, then use norm.interval() as in the lecture example
-    lower = None
-    upper = None
+    #lower = None
+    #upper = None
 
     # YOUR CODE HERE #
+    (fitted_mean, fitted_std) = fit_normal(_samples) #returns mean and std of samples
+
+    (lower, upper) = norm.interval(_fraction, loc=fitted_mean, scale=fitted_std) #gives bounds within percent of range, around the mean, within the range of data
 
     return lower, upper
 
