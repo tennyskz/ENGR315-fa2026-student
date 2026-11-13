@@ -26,8 +26,9 @@ def load_tensile_data(_path: str):
     """
 
     # YOUR CODE HERE #
+    tensile_data = pd.read_csv(_path)
 
-    return None
+    return tensile_data
 
 
 def select_material(_df, _material: str):
@@ -39,8 +40,9 @@ def select_material(_df, _material: str):
     """
 
     # YOUR CODE HERE #
+    materials = _df[_df['Material_Type'] == _material]
 
-    return None
+    return materials
 
 
 def select_strong(_df, _material: str, _min_yield: float):
